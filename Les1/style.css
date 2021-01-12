@@ -1,0 +1,46 @@
+footer{
+    margin: 100px;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border: aliceblue;
+    border-width: 10px;
+    border: 20px solid #939393;
+}
+
+section{
+    margin: 5px;
+    padding: 10px;
+    background-color: #33cbe3;
+    color: black;
+    border: aliceblue;
+    border-width: 10px;
+    border: 2px solid #ce3d7a;
+}
+p{
+    margin: 5px;
+    padding: 10px;
+    background-color: gray;
+    color: #295b4d;
+    border: aliceblue;
+    border-width: 10px;
+    border: 20px solid #cebe3d;
+}
+h2{
+    margin: 10px;
+    padding: 1px;
+    background-color: #bb3737;
+    color: #cbea37;
+    border: aliceblue;
+    border-width: 10px;
+    border: 20px solid #7f3dce;
+}
+h1{
+    margin: 5px;
+    padding: 10px;
+    background-color: gray;
+    color: black;
+    border: aliceblue;
+    border-width: 10px;
+    border: 20px solid #3d7cce;
+}
