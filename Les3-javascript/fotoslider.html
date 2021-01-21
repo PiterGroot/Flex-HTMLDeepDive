@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotoslider</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        //variabel maken voor sound effect
+        var next;
+        var back;
+        let fotonummer, fotobreedte, aantalfotos, fotoslider;
+     function setupFotoslider() {
+            //sound effect importeren
+            next = new sound("audio/next.mp3");
+            back = new sound("audio/back.mp3");
+            fotonummer = 0;
+            fotobreedte = 640; 
+            fotoslider = document.getElementById("fotoslider");
+            let volgendeKnop = document.getElementById("volgende-btn");
+            let vorigeKnop = document.getElementById("vorige-btn");
+            aantalfotos = fotoslider.children.length;
+            console.log(aantalfotos);
+            volgendeKnop.addEventListener("click", volgendeFoto);
+            vorigeKnop.addEventListener("click", vorigeFoto);
+        }
+            
+        function volgendeFoto(){
+            //sound effect afspelen
+            next.play();
+            console.log("volgendeknop");
+            fotonummer++;
+            if (fotonummer === aantalfotos) {
+                fotonummer = 0;
+            }
+            let afstandNaarLinks = -1 * (fotonummer * fotobreedte)
+            fotoslider.style.left = afstandNaarLinks + "px";
+        }
+        function vorigeFoto(){
+            //sound effect afspelen
+            back.play();
+            console.log("vorigeknop");
+            fotonummer--;
+            if (fotonummer === -1) {
+                fotonummer = 4;
+            }
+            let afstandNaarLinks = -1 * (fotonummer * fotobreedte)
+            fotoslider.style.left = afstandNaarLinks + "px";
+        }
+        //constructor voor sound object
+        function sound(src) {
+            this.sound = document.createElement("audio");
+            this.sound.src = src;
+            this.sound.setAttribute("preload", "auto");
+            this.sound.setAttribute("controls", "none");
+            this.sound.style.display = "none";
+            document.body.appendChild(this.sound);
+            this.play = function(){
+                this.sound.play();
+            }
+            this.stop = function(){
+                    this.sound.pause();
+            }
+        }
+        
+     window.addEventListener('DOMContentLoaded', setupFotoslider);
+    </script>
+</head>
+<body>
+    <div id="viewport">
+        <div id="fotoslider">
+            <div class="foto"><img src="images/foto1.jpg" /></div>
+            <div class="foto"><img src="images/foto2.jpg" /></div>
+            <div class="foto"><img src="images/foto3.jpg" /></div>
+            <div class="foto"><img src="images/foto4.jpg" /></div>
+            <div class="foto"><img src="images/foto5.jpg" /></div>
+        </div>
+    </div>
+    <div id="controls">
+        <button id="vorige-btn">Vorige</button>
+        <button id="volgende-btn">Volgende</button>
+    </div>
+    
+</body>
+</html>
